@@ -1,0 +1,41 @@
+# Kubernetes
+*.kubeconfig
+admin.conf
+*.key
+*.crt
+*.csr
+*.pem
+
+# Secrets and sensitive data
+encryption-config.yaml
+*-secret.yaml
+*.token
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform.lock.hcl
+
+# Environment files
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
