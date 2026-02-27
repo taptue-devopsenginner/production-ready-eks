@@ -1,0 +1,316 @@
+{
+  "name": "Kubernetes Production Cluster on AWS",
+  "nodes": [
+    {
+      "id": "users",
+      "label": "Users/Internet",
+      "icon": "/icons/general/users.png",
+      "x": 1200,
+      "y": 0
+    },
+    {
+      "id": "nlb",
+      "label": "Network Load Balancer",
+      "subtitle": "Ingress Traffic",
+      "icon": "/icons/aws/network/elb-network-load-balancer.png",
+      "x": 1200,
+      "y": 250
+    },
+    {
+      "id": "secrets-manager",
+      "label": "Secrets Manager",
+      "subtitle": "External Secrets",
+      "icon": "/icons/aws/security/secrets-manager.png",
+      "x": 0,
+      "y": 400
+    },
+    {
+      "id": "iam",
+      "label": "IAM",
+      "x": 0,
+      "y": 650,
+      "subtitle": "IRSA & Instance Profiles",
+      "icon": "/icons/aws/security/iam.png"
+    },
+    {
+      "id": "ebs",
+      "label": "EBS Storage",
+      "subtitle": "Persistent Volumes",
+      "icon": "/icons/aws/storage/storage.png",
+      "x": 2420,
+      "y": 600
+    },
+    {
+      "id": "vpc",
+      "label": "VPC",
+      "subtitle": "10.0.0.0/16",
+      "icon": "/icons/aws/network/vpc.png",
+      "type": "container",
+      "x": 220,
+      "y": 530,
+      "width": 1970,
+      "height": 2090
+    },
+    {
+      "id": "public-subnet",
+      "label": "Public Subnet",
+      "subtitle": "10.0.1.0/24",
+      "icon": "/icons/aws/network/public-subnet.png",
+      "type": "container",
+      "x": 390,
+      "y": 90,
+      "width": 300,
+      "height": 330,
+      "parentId": "vpc"
+    },
+    {
+      "id": "haproxy",
+      "label": "HAProxy",
+      "subtitle": "API Server LB",
+      "icon": "/icons/onprem/network/haproxy.png",
+      "x": 90,
+      "y": 90,
+      "parentId": "public-subnet"
+    },
+    {
+      "id": "control-plane-subnet",
+      "label": "Control Plane Subnet",
+      "subtitle": "10.0.10.0/24",
+      "icon": "/icons/aws/network/private-subnet.png",
+      "type": "container",
+      "x": 90,
+      "y": 560,
+      "width": 480,
+      "height": 1440,
+      "parentId": "vpc"
+    },
+    {
+      "id": "master1",
+      "label": "Master Node 1",
+      "subtitle": "t3.medium",
+      "icon": "/icons/k8s/infra/master.png",
+      "type": "container",
+      "x": 90,
+      "y": 90,
+      "width": 300,
+      "height": 580,
+      "parentId": "control-plane-subnet"
+    },
+    {
+      "id": "api1",
+      "label": "API Server",
+      "icon": "/icons/k8s/controlplane/api.png",
+      "x": 90,
+      "y": 90,
+      "parentId": "master1"
+    },
+    {
+      "id": "etcd1",
+      "label": "etcd",
+      "icon": "/icons/k8s/infra/etcd.png",
+      "x": 90,
+      "y": 340,
+      "parentId": "master1"
+    },
+    {
+      "id": "master2",
+      "label": "Master Node 2",
+      "subtitle": "t3.medium",
+      "icon": "/icons/k8s/infra/master.png",
+      "type": "container",
+      "x": 90,
+      "y": 770,
+      "width": 300,
+      "height": 580,
+      "parentId": "control-plane-subnet"
+    },
+    {
+      "id": "api2",
+      "label": "API Server",
+      "icon": "/icons/k8s/controlplane/api.png",
+      "x": 90,
+      "y": 90,
+      "parentId": "master2"
+    },
+    {
+      "id": "etcd2",
+      "label": "etcd",
+      "icon": "/icons/k8s/infra/etcd.png",
+      "x": 90,
+      "y": 340,
+      "parentId": "master2"
+    },
+    {
+      "id": "worker-subnet",
+      "label": "Worker Nodes Subnet",
+      "subtitle": "10.0.20.0/24",
+      "icon": "/icons/aws/network/private-subnet.png",
+      "type": "container",
+      "x": 700,
+      "y": 560,
+      "width": 1180,
+      "height": 890,
+      "parentId": "vpc"
+    },
+    {
+      "id": "worker1",
+      "label": "Worker Node 1",
+      "subtitle": "t3.large",
+      "icon": "/icons/k8s/infra/node.png",
+      "x": 90,
+      "y": 90,
+      "parentId": "worker-subnet"
+    },
+    {
+      "id": "worker2",
+      "label": "Worker Node 2",
+      "subtitle": "t3.large",
+      "icon": "/icons/k8s/infra/node.png",
+      "x": 310,
+      "y": 90,
+      "parentId": "worker-subnet"
+    },
+    {
+      "id": "worker3",
+      "label": "Worker Node 3",
+      "subtitle": "t3.large",
+      "icon": "/icons/k8s/infra/node.png",
+      "x": 530,
+      "y": 90,
+      "parentId": "worker-subnet"
+    },
+    {
+      "id": "worker4",
+      "label": "Worker Node 4",
+      "subtitle": "t3.large",
+      "icon": "/icons/k8s/infra/node.png",
+      "x": 750,
+      "y": 90,
+      "parentId": "worker-subnet"
+    },
+    {
+      "id": "worker5",
+      "label": "Worker Node 5",
+      "subtitle": "t3.large",
+      "icon": "/icons/k8s/infra/node.png",
+      "x": 970,
+      "y": 90,
+      "parentId": "worker-subnet"
+    },
+    {
+      "id": "nginx",
+      "label": "NGINX Ingress",
+      "x": 530,
+      "y": 390,
+      "subtitle": "Ingress Controller",
+      "icon": "/icons/onprem/network/nginx.png",
+      "parentId": "worker-subnet"
+    },
+    {
+      "id": "calico",
+      "label": "Calico CNI",
+      "subtitle": "Pod Network",
+      "icon": "/icons/onprem/network/calico.png",
+      "x": 90,
+      "y": 650,
+      "parentId": "worker-subnet"
+    },
+    {
+      "id": "csi",
+      "label": "EBS CSI Driver",
+      "subtitle": "Storage Plugin",
+      "icon": "/icons/aws/storage/storage.png",
+      "x": 970,
+      "y": 650,
+      "parentId": "worker-subnet"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "source": "users",
+      "target": "nlb",
+      "label": "HTTPS"
+    },
+    {
+      "id": "e2",
+      "source": "nlb",
+      "target": "haproxy",
+      "label": "TCP/6443"
+    },
+    {
+      "id": "e3",
+      "source": "haproxy",
+      "target": "api1",
+      "label": "API Requests"
+    },
+    {
+      "id": "e4",
+      "source": "haproxy",
+      "target": "api2",
+      "label": "API Requests"
+    },
+    {
+      "id": "e5",
+      "source": "api1",
+      "target": "worker1",
+      "label": "Manages"
+    },
+    {
+      "id": "e6",
+      "source": "api1",
+      "target": "worker2"
+    },
+    {
+      "id": "e7",
+      "source": "api1",
+      "target": "worker3"
+    },
+    {
+      "id": "e8",
+      "source": "api1",
+      "target": "worker4"
+    },
+    {
+      "id": "e9",
+      "source": "api1",
+      "target": "worker5"
+    },
+    {
+      "id": "e10",
+      "source": "etcd1",
+      "target": "etcd2",
+      "label": "Replication",
+      "style": "dashed"
+    },
+    {
+      "id": "e11",
+      "source": "secrets-manager",
+      "target": "master1",
+      "label": "Syncs Secrets"
+    },
+    {
+      "id": "e12",
+      "source": "iam",
+      "target": "master1",
+      "label": "Authentication"
+    },
+    {
+      "id": "e13",
+      "source": "iam",
+      "target": "worker1"
+    },
+    {
+      "id": "e14",
+      "source": "csi",
+      "target": "ebs",
+      "label": "Provisions"
+    },
+    {
+      "id": "e15",
+      "source": "nginx",
+      "target": "nlb",
+      "label": "Exposes Services"
+    }
+  ]
+}
