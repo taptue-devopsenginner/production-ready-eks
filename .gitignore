@@ -15,8 +15,16 @@ encryption-config.yaml
 .terraform/
 *.tfstate
 *.tfstate.*
+*.tfstate.backup
 *.tfvars
 .terraform.lock.hcl
+terraform.tfstate.d/
+.terraformrc
+terraform.rc
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 
 # Environment files
 .env
