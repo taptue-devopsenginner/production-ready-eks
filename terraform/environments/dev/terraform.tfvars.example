@@ -1,0 +1,13 @@
+aws_region             = "us-east-1"
+project_name            = "production-ready-eks"
+# Select a Kubernetes version currently supported by Amazon EKS in us-east-1.
+kubernetes_version      = "1.34"
+availability_zones      = ["us-east-1a", "us-east-1b", "us-east-1c"]
+vpc_cidr                = "10.40.0.0/16"
+single_nat_gateway      = true
+node_instance_types     = ["t3.large"]
+node_desired_size       = 2
+node_min_size           = 2
+node_max_size           = 4
+endpoint_public_access  = false
+endpoint_public_access_cidrs = []
