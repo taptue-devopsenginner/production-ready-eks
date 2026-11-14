@@ -5,7 +5,6 @@
 *.hcl
 !*.hcl.example
 .terraform/
-.terraform.lock.hcl
 crash.log
 override.tf
 override.tf.json
